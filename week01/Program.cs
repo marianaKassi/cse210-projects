@@ -12,7 +12,7 @@ class Program
 
         do
         {
-            // Generate a random number between 1 and 100
+    
             int magicNumber = random.Next(1, 101);
             int userGuess = 0;
             int guessCount = 0;
@@ -20,12 +20,11 @@ class Program
             Console.WriteLine("Welcome to 'Guess My Number'!");
             Console.WriteLine("I'm thinking of a number between 1 and 100.");
 
-            // Loop until the user guesses the magic number
             while (userGuess != magicNumber)
             {
                 Console.Write("What is your guess? ");
                 userGuess = Convert.ToInt32(Console.ReadLine());
-                guessCount++; // Increment the guess count
+                guessCount++; 
 
                 if (userGuess < magicNumber)
                 {
@@ -41,15 +40,14 @@ class Program
                 }
             }
 
-            // Inform the user of their total guesses
+            
             Console.WriteLine($"You made {guessCount} guesses.");
 
-            // Ask if they want to play again
             Console.Write("Do you want to play again? (yes/no): ");
             string response = Console.ReadLine().ToLower();
             playAgain = response == "yes";
 
-        } while (playAgain); // Repeat the game if the user wants to play again
+        } while (playAgain); 
 
         Console.WriteLine("Thanks for playing!");
     }
