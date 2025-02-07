@@ -14,6 +14,8 @@ class Program
                 Console.WriteLine("Hello World! This is the ScriptureMemorizer Project Mariana.");
         Console.WriteLine("Hello World! This is the ScriptureMemorizer Project Mariana.");
         Console.WriteLine("Hello World! This is the ScriptureMemorizer Project Mariana.");
+                Console.WriteLine("Hello World! This is the ScriptureMemorizer Project Mariana.");
+
 
 
     }
