@@ -7,7 +7,7 @@ class Program
     {
         Console.WriteLine("Hello World! This is the YouTubeVideos Project.");
 
-        // Create videos
+        
         var video1 = new Video("Learning C#", "Alice", 300);
         video1.AddComment(new Comment("Bob", "Great tutorial!"));
         video1.AddComment(new Comment("Charlie", "Very helpful, thanks."));
@@ -22,10 +22,9 @@ class Program
         video3.AddComment(new Comment("Ivan", "Nice explanation."));
         video3.AddComment(new Comment("Judy", "Very clear and concise."));
         
-        // List of videos
         List<Video> videos = new List<Video> { video1, video2, video3 };
 
-        // Display video details and comments
+        
         foreach (var video in videos)
         {
             Console.WriteLine($"Title: {video.Title}");
@@ -39,7 +38,7 @@ class Program
                 Console.WriteLine($"- {comment.Author}: {comment.Text}");
             }
 
-            Console.WriteLine(); // Blank line for better readability
+            Console.WriteLine();
         }
     }
 }
