@@ -8,18 +8,14 @@ class Program
 
         DisplayWelcome();
         
-    
         string userName = PromptUserName();
         int favoriteNumber = PromptUserNumber();
         
-
         int squaredNumber = SquareNumber(favoriteNumber);
-        
         
         DisplayResult(userName, squaredNumber);
     }
 
-    
     static void DisplayWelcome()
     {
         Console.WriteLine("Welcome to the Program!");
@@ -31,21 +27,27 @@ class Program
         return Console.ReadLine();
     }
 
-    
     static int PromptUserNumber()
     {
-        Console.Write("Please enter your favorite number: ");
-        return Convert.ToInt32(Console.ReadLine());
+        int favoriteNumber;
+        while (true)
+        {
+            Console.Write("Please enter your favorite number: ");
+            if (int.TryParse(Console.ReadLine(), out favoriteNumber))
+            {
+                return favoriteNumber;
+            }
+            Console.WriteLine("Invalid input. Please enter a valid integer.");
+        }
     }
 
     static int SquareNumber(int number)
     {
         return number * number;
+    }
 
     static void DisplayResult(string name, int squaredNumber)
     {
         Console.WriteLine($"{name}, the square of your number is {squaredNumber}");
     }
 }
-
-    

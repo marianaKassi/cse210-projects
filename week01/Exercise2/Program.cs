@@ -77,7 +77,7 @@ class Program
         }
         else
         {
-            Console.WriteLine($"Your grade is {letter}{sign}. RIA");
+            Console.WriteLine($"Your grade is {letter}{sign}.");
         }
     }
 }

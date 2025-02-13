@@ -1,20 +1,18 @@
 using System;
+using System.Collections.Generic;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        Console.WriteLine("Hello World! This is the Exercise4 Project.");
+        List<int> numbers = new List<int>();
+        int input;
 
-        List<double> numbers = new List<double>();
-        double input;
-
-        
         Console.WriteLine("Enter a list of numbers, type 0 when finished.");
         do
         {
             Console.Write("Enter number: ");
-            input = Convert.ToDouble(Console.ReadLine());
+            input = int.Parse(Console.ReadLine());
 
             if (input != 0)
             {
@@ -22,51 +20,77 @@ class Program
             }
         } while (input != 0);
 
-        
-        double sum = 0;
-        double max = double.MinValue; 
+        if (numbers.Count > 0)
+        {
+            int sum = CalculateSum(numbers);
+            double average = CalculateAverage(numbers);
+            int max = FindMaximum(numbers);
 
-        foreach (double number in numbers)
+            Console.WriteLine($"The sum is: {sum}");
+            Console.WriteLine($"The average is: {average}");
+            Console.WriteLine($"The largest number is: {max}");
+
+            int? smallestPositive = FindSmallestPositive(numbers);
+            if (smallestPositive.HasValue)
+            {
+                Console.WriteLine($"The smallest positive number is: {smallestPositive.Value}");
+            }
+
+            numbers.Sort();
+            Console.WriteLine("The sorted list is:");
+            foreach (var number in numbers)
+            {
+                Console.WriteLine(number);
+            }
+        }
+        else
+        {
+            Console.WriteLine("No numbers were entered.");
+        }
+    }
+
+    static int CalculateSum(List<int> numbers)
+    {
+        int sum = 0;
+        foreach (var number in numbers)
         {
             sum += number;
+        }
+        return sum;
+    }
+
+    static double CalculateAverage(List<int> numbers)
+    {
+        return (double)CalculateSum(numbers) / numbers.Count;
+    }
+
+    static int FindMaximum(List<int> numbers)
+    {
+        int max = numbers[0];
+        foreach (var number in numbers)
+        {
             if (number > max)
             {
                 max = number;
             }
         }
+        return max;
+    }
 
-        double average = sum / numbers.Count;
+    static int? FindSmallestPositive(List<int> numbers)
+    {
+        int? smallestPositive = null;
 
-        
-        Console.WriteLine($"The sum is: {sum}");
-        Console.WriteLine($"The average is: {average}");
-        Console.WriteLine($"The largest number is: {max}");
-
-        
-        double smallestPositive = double.MaxValue; 
-        foreach (double number in numbers)
+        foreach (var number in numbers)
         {
-            if (number > 0 && number < smallestPositive)
+            if (number > 0)
             {
-                smallestPositive = number;
+                if (!smallestPositive.HasValue || number < smallestPositive.Value)
+                {
+                    smallestPositive = number;
+                }
             }
         }
-
-        if (smallestPositive != double.MaxValue)
-        {
-            Console.WriteLine($"The smallest positive number is: {smallestPositive}");
-        }
-        else
-        {
-            Console.WriteLine("There are no positive numbers in the list.");
-
-            
-        numbers.Sort();
-        Console.WriteLine("The sorted list is:");
-        foreach (double number in numbers)
-        {
-            Console.WriteLine(number);
-        }
+  return smallestPositive;
     }
 }
-    

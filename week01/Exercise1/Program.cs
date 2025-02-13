@@ -11,6 +11,6 @@ class Program
        Console.WriteLine(" What is your last name? Mariana");
 
 
-Console.Write("Your name is KASSI,G Mariana KASSI");
+Console.Write("Your name is ,Mariana KASSI");
     }
 }
