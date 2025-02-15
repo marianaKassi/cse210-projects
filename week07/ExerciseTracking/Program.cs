@@ -10,7 +10,7 @@ abstract class Activity
     {
         _date = date;
         _minutes = minutes;
-    }
+    } 
 
     public abstract double GetDistance();
     public abstract double GetSpeed();
